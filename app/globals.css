@@ -24,3 +24,45 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes heroCube {
+  0% {
+    transform: rotateX(18deg) rotateY(-18deg);
+  }
+  50% {
+    transform: rotateX(28deg) rotateY(26deg);
+  }
+  100% {
+    transform: rotateX(18deg) rotateY(-18deg);
+  }
+}
+
+@keyframes heroFloat0 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes heroFloat1 {
+  0%,
+  100% {
+    transform: translateY(4px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes heroFloat2 {
+  0%,
+  100% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
