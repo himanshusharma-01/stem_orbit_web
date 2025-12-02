@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const services = [
   {
     title: "Custom Website Engineering",
@@ -26,6 +28,28 @@ const caseStudies = [
   { label: "Health Tech", metric: "37% lower", detail: "bounce rate within 3 weeks" },
 ];
 
+const technologies = [
+  { name: "React", badge: "Frontend OS", detail: "Reusable UI systems crafted for scale." },
+  { name: "Next.js", badge: "Edge native", detail: "Server + static hybrid deployments on autopilot." },
+  { name: "Shopify", badge: "Commerce IQ", detail: "Custom storefronts tied to growth experiments." },
+  { name: "WordPress", badge: "Publishing core", detail: "Headless builds with instant authoring." },
+  { name: "Sanity", badge: "Content graph", detail: "Structured storytelling with live previews." },
+  { name: "Tailwind", badge: "Design tokens", detail: "Adaptive design language with zero drift." },
+];
+
+const clientLogos = [
+  "NeuroPulse",
+  "Aether Labs",
+  "OrbitCare",
+  "Pulsewave",
+  "Lumen Health",
+  "Nimbus Retail",
+  "Vertex Cloud",
+  "Atlas Mobility",
+  "FieldNote",
+  "Northwind",
+];
+
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#05060a] text-white">
@@ -36,7 +60,7 @@ export default function Home() {
       </div>
 
       <main className="relative mx-auto flex min-h-screen max-w-7xl flex-col gap-16 px-4 py-12 lg:px-8 lg:py-20">
-        <nav className="flex items-center justify-between rounded-3xl border border-white/10 bg-black/40 px-6 py-4 shadow-[0_10px_40px_rgba(0,0,0,0.6)] backdrop-blur">
+        <nav className="mx-auto flex w-full max-w-5xl -translate-y-6 items-center justify-between rounded-[36px] border border-white/15 bg-gradient-to-br from-white/10 via-white/5 to-white/0 px-8 py-5 shadow-[0_25px_80px_rgba(6,6,18,0.65)] backdrop-blur-2xl backdrop-saturate-200">
           <div className="flex items-center gap-3">
             <span className="h-9 w-9 rounded-2xl bg-gradient-to-br from-purple-500 to-cyan-400 shadow-[0_0_25px_rgba(94,234,212,0.7)]" />
             <p className="text-base font-semibold tracking-wide text-white">Stemorbit</p>
@@ -47,25 +71,28 @@ export default function Home() {
                 {item}
               </button>
             ))}
+            <Link href="/contact" className="rounded-full border border-white/10 px-4 py-1.5 text-sm font-semibold text-white/80 transition hover:border-white/40 hover:text-white">
+              Contact
+            </Link>
           </div>
           <button className="rounded-full border border-white/30 px-4 py-2 text-sm font-semibold text-white/80 shadow-[0_0_25px_rgba(148,163,184,0.45)] transition hover:border-white hover:text-white">
             Book a call
           </button>
         </nav>
 
-        <header className="grid gap-10 pt-4 lg:grid-cols-2 lg:items-center">
+        <header className="grid -mt-4 gap-10 lg:grid-cols-2 lg:items-center">
           <div className="flex flex-col gap-6 text-center lg:text-left">
             <span className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">
               Stemorbit
             </span>
-            <h1 className="text-4xl font-semibold leading-tight text-white md:text-6xl">
+            <h1 className="text-3xl font-semibold leading-snug text-white md:text-5xl">
               We develop the web&apos;s boldest experiences.
               <span className="bg-gradient-to-r from-purple-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent">
                 {" "}
                 The best websites begin here.
               </span>
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-zinc-300 lg:mx-0">
+            <p className="mx-auto max-w-2xl text-base text-zinc-300 lg:mx-0">
               We are a dark-mode obsessed team of designers, engineers, and growth strategists.
               Every pixel, line of code, and micro-interaction is crafted to convert and feel effortless.
             </p>
@@ -80,48 +107,20 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            className="relative mx-auto flex h-96 w-full max-w-md items-center justify-center"
-            style={{ perspective: "1400px" }}
-          >
-            <div className="absolute inset-0 rounded-[40px] border border-white/5 bg-gradient-to-b from-white/10 to-white/0 blur-3xl" />
-            <div
-              className="relative h-72 w-72"
-              style={{ transformStyle: "preserve-3d", animation: "heroCube 24s ease-in-out infinite" }}
-            >
-              {[0, 1, 2].map((idx) => (
-                <div
-                  key={idx}
-                  className="absolute inset-0 rounded-[30px] border border-white/10 bg-gradient-to-br from-purple-500/45 via-cyan-400/30 to-sky-500/40 shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
-                  style={{
-                    transform: `rotateX(${18 + idx * 5}deg) rotateY(${idx * 14}deg) translateZ(${idx * 46}px)`,
-                    animation: `heroFloat${idx} 9s ease-in-out infinite`,
-                  }}
-                >
-                  <div className="flex h-full flex-col justify-between p-6 text-white">
-                    <div className="flex items-center justify-between text-xs text-white/70">
-                      <div className="flex items-center gap-2">
-                        <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-300" />
-                        Live build {idx + 1}
-                      </div>
-                      <span className="rounded-full bg-black/30 px-2 py-0.5 text-[10px] uppercase tracking-[0.18em]">
-                        Realtime
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.3em] text-white/60">
-                        T+{(idx + 1) * 3} mins
-                      </p>
-                      <p className="mt-2 text-3xl font-semibold">
-                        Conversion {idx === 0 ? "Launchpad" : idx === 1 ? "Velocity" : "Canvas"}
-                      </p>
-                    </div>
-                    <p className="text-sm text-white/70">
-                      Adaptive layout, fluid motion, and hyper-optimized interactions tested across viewports.
-                    </p>
-                  </div>
-                </div>
-              ))}
+          <div className="relative mx-auto flex h-[28rem] w-full max-w-lg items-center justify-center">
+            <div className="absolute inset-0 rounded-[40%] bg-gradient-to-br from-[#5d32ff]/30 via-[#2af5ff]/20 to-[#ff4fd8]/30 blur-3xl" />
+            <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[36%] bg-black/70 shadow-[0_45px_120px_rgba(0,0,0,0.75)]">
+              <div className="absolute h-[110%] w-[110%] animate-[spin_18s_linear_infinite] rounded-[42%] bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_55%),radial-gradient(circle_at_80%_30%,rgba(96,165,250,0.45),transparent_60%),radial-gradient(circle_at_30%_80%,rgba(16,185,129,0.45),transparent_60%)] blur-[6px]" />
+              <div className="absolute h-[90%] w-[90%] animate-pulse rounded-[48%] bg-gradient-to-br from-purple-500 via-cyan-400 to-pink-500 opacity-70 blur-[2px]" />
+              <div className="absolute inset-6 rounded-[40%] border border-white/10" />
+              <div className="relative z-10 flex flex-col items-center gap-6 text-center">
+                <span className="text-xs uppercase tracking-[0.4em] text-white/80">Celebrating craft</span>
+                <p className="text-5xl font-semibold tracking-[0.08em] text-white">STEMORBIT</p>
+                <button className="group flex items-center gap-3 rounded-full border border-white/60 px-6 py-2 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
+                  Explore
+                  <span className="transition group-hover:translate-x-1">→</span>
+                </button>
+              </div>
             </div>
           </div>
         </header>
@@ -154,6 +153,58 @@ export default function Home() {
               <span className="h-2 w-2 animate-pulse rounded-full bg-green-300" />
               We&apos;re currently booking January builds.
             </div>
+          </div>
+        </section>
+
+        <section className="rounded-[32px] border border-white/5 bg-gradient-to-br from-[#100d1c] via-[#0a0c1a] to-[#05060a] p-10 shadow-[0_60px_120px_rgba(0,0,0,0.55)]">
+          <div className="flex flex-col gap-4 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+            <div>
+              <p className="text-xs uppercase tracking-[0.35em] text-cyan-300">Stacks we obsess over</p>
+              <h3 className="mt-3 text-3xl font-semibold text-white">Technologies we excel at</h3>
+            </div>
+            <p className="text-sm text-white/70 lg:max-w-md">
+              From composable commerce to headless publishing, we partner with the frameworks that keep
+              launches fast, stable, and endlessly adjustable.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {technologies.map((tech, index) => (
+              <div
+                key={tech.name}
+                className="group relative overflow-hidden rounded-[24px] border border-white/5 bg-white/5 p-6 transition hover:border-white/30 hover:bg-white/10"
+              >
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-500/0 via-cyan-400/0 to-blue-500/0 opacity-0 blur-2xl transition group-hover:opacity-60" />
+                <div className="flex items-center justify-between text-xs text-white/70">
+                  <span className="rounded-full border border-white/10 px-3 py-1 tracking-[0.3em] text-[10px] uppercase">
+                    {tech.badge}
+                  </span>
+                  <span className="text-white/60">#{(index + 1).toString().padStart(2, "0")}</span>
+                </div>
+                <p className="mt-5 text-2xl font-semibold text-white">{tech.name}</p>
+                <p className="mt-2 text-sm text-white/70">{tech.detail}</p>
+                <div className="mt-6 h-px w-full bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                <p className="mt-3 text-xs uppercase tracking-[0.35em] text-white/60">Infinite sandbox</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-[32px] border border-white/5 bg-black/30 p-8 text-center shadow-[0_40px_80px_rgba(0,0,0,0.45)] backdrop-blur">
+          <p className="text-xs uppercase tracking-[0.35em] text-white/60">Teams who trust us</p>
+          <h3 className="mt-3 text-3xl font-semibold text-white">Partnering with product leaders worldwide</h3>
+          <p className="mx-auto mt-3 max-w-3xl text-sm text-white/70">
+            From emerging startups to category-defining enterprises, we embed alongside marketing, product, and growth teams
+            to ship their most ambitious experiences.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {clientLogos.map((client) => (
+              <div
+                key={client}
+                className="rounded-2xl border border-white/5 bg-white/5 px-4 py-6 text-lg font-semibold uppercase tracking-[0.25em] text-white/80 transition hover:border-white/20 hover:bg-white/10"
+              >
+                {client}
+              </div>
+            ))}
           </div>
         </section>
 
